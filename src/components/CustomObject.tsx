@@ -1,7 +1,7 @@
 import { useEffect, useRef, useMemo } from 'react';
 import * as THREE from 'three';
 
-export default function CustomObject() {
+export default function CustomObject(props: JSX.IntrinsicElements['mesh']) {
   const geometryRef = useRef<THREE.BufferGeometry>(null!);
 
   const verticesCount = 10 * 3;
@@ -19,7 +19,7 @@ export default function CustomObject() {
   }, []);
 
   return (
-    <mesh>
+    <mesh {...props}>
       <bufferGeometry ref={geometryRef}>
         <bufferAttribute
           attach="attributes-position"
