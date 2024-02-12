@@ -31,11 +31,6 @@ export default function App() {
     },
   });
 
-  const points = [];
-  points.push(new THREE.Vector3(-4, 0, 0));
-  points.push(new THREE.Vector3(point, 2, 0));
-  points.push(new THREE.Vector3(4, 0, 0));
-
   return (
     <Canvas
       gl={{
@@ -47,7 +42,7 @@ export default function App() {
         fov: 45,
         near: 0.1,
         far: 200,
-        position: [2, 2, 7],
+        position: [5, 10, 30],
       }}
     >
       <Suspense fallback={<Loader />}>
@@ -59,7 +54,15 @@ export default function App() {
 
         <Environment preset="city" background resolution={100} blur={0.4} />
 
-        <Line points={points} color="red" lineWidth={3} />
+        <Line
+          points={[
+            [-4, 0, 0],
+            [point, 2, 0],
+            [4, 0, 0],
+          ]}
+          color="red"
+          lineWidth={3}
+        />
 
         <group>
           <Box position={[-2.2, 0, 0]} />
